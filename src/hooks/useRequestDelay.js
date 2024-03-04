@@ -1,4 +1,3 @@
-// import { data } from "../../SpeakerData";
 import { useState, useEffect } from "react";
 
 export const REQUEST_STATUS = {
@@ -20,7 +19,7 @@ function useRequestDelay(delayTime = 1000, initialData = []) {
                 await delay(delayTime);
                 // throw "Had Error."
                 setRequestStatus(REQUEST_STATUS.SUCCESS);
-                setData(data);
+                setData(initialData);
             } catch (e) {
                 setRequestStatus(REQUEST_STATUS.FAILURE);
                 setError(e);
@@ -28,21 +27,6 @@ function useRequestDelay(delayTime = 1000, initialData = []) {
         }
         delayFunc();
     }, []);
-
-    // function onFavoriteToggle(id) {
-    //     const speakersRecPrevious = speakersData.find(function (rec) {
-    //         return rec.id === id;
-    //     });
-    //     const speakerRecUpdated = {
-    //         ...speakersRecPrevious,
-    //         favorite: !speakersRecPrevious.favorite,
-    //     };
-    //     const speakersDataNew = speakersData.map(function (rec) {
-    //         return rec.id === id ? speakerRecUpdated : rec;
-    //     }, []);
-
-    //     setSpeakersData(speakersDataNew);
-    // }
 
     function updateRecord(recordUpdated) {
         const newRecords = data.map(function (rec) {
