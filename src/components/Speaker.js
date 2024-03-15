@@ -34,18 +34,10 @@ function SpeakerImage({ id, first, last }) {
 
 function SpeakerFavorite({ favorite, onFavoriteToggle }) {
 
-    const [inTransition, setInTransition] = useState(false);
-
-    function doneCallback() {
-        setInTransition(false);
-        console.log(`In SpeakerFavoutite:doneCallback   ${new Date().getMilliseconds()}`);
-    }
-
     return (
         <div className="action padB1">
             <span onClick={() => {
-                setInTransition(true);
-                return onFavoriteToggle(doneCallback);
+                return onFavoriteToggle();
             }}>
                 <i
                     className={
@@ -53,9 +45,6 @@ function SpeakerFavorite({ favorite, onFavoriteToggle }) {
                     }
                 />{" "}
                 Favorite{" "}
-                {inTransition ? (
-                    <span className="fas fa-circle-notch fa-spin"></span>
-                ) : null}
             </span>
         </div>
     );
