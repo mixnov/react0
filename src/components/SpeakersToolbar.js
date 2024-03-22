@@ -1,9 +1,13 @@
 import { ThemeContext } from "../contexts/ThemeContext";
 import { useContext } from "react";
+import { SpeakerFilterCotext } from "../contexts/SpeakerFilterCotext";
 
-function SpeakersToolbar({ showSessions, setShowSessions }) {
+function SpeakersToolbar() {
 
   const { theme, setTheme } = useContext(ThemeContext);
+  const {
+    showSessions, setShowSessions,
+  } = useContext(SpeakerFilterCotext);
 
   return (
     <section className="toolbar dark-theme-header">
